@@ -1,6 +1,3 @@
-Certainly! Here's a basic Markdown template for a "TypeScript Challenger" that you can use for creating a project or documentation. This template includes sections for an overview, installation instructions, challenges, and contributions.
-
-```markdown
 # TypeScript Challenger
 
 Welcome to the **TypeScript Challenger**! This repository is designed to help you enhance your TypeScript skills through a series of coding challenges.
