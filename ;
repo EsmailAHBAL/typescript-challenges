@@ -34,6 +34,11 @@ type IsEqual<T, U> =
   (<G>() => (G extends U ? 1 : 2))
   ? true
   : false;
+
+
+
+
+
 type my_equal<T, U> = (<G>() => G extends T ? 1 : 0) extends (<G>() => G extends U ? 1 : 0) ? true : false
 type iclude_type_<T extends any[], S> = T extends [infer F, ...infer R] ? my_equal<S, F> extends true ? true : iclude_type_<R, S> : false
 const kdkf: iclude_type_<['get', 'set'], 'getd'> = false
@@ -46,6 +51,7 @@ function fillterHouses(h: any[]): any {
 }
 findHouses([], fillterHouses(['hd']))
 const numbers: number[] = [1, 2, 3]
+
 const summ = numbers.reduce(
   (c: number, b: number) => {
     let sum = c + b
@@ -56,12 +62,17 @@ const summ = numbers.reduce(
   },
   2
 )
+
+
 function returnType<T>(S: T) {
+
 }
 function tst<T>(t: T): T {
   console.log(typeof t)
   return t
+
 }
+
 type Unshift<T extends any[], A> = [A, ...T]
 const Unshift_testing: Unshift<[3, 4], 2> = [2, 3, 4]
 const my_function = (id: number, date: Date) => { }
@@ -69,16 +80,9 @@ type Params<T extends (...args: any[]) => any> = T extends (...args: infer P) =>
 const fn = (x: number) => {
   return x > 10 ? 1 : -1
 }
-interface country {
-  name: string,
-  color: string,
-  pop: number
-}
+
+
 type Return_Type<F extends (...args: any) => any> = F extends (...args: any) => infer R ? R : never
 const test_return_type: Return_Type<typeof fn> = -1 //or 1 
-type Omit_<T, O extends keyof T> = { [P in keyof T as P extends O ? never : P]: T[P] }
-const testOmit: Omit_<country, "name" | "pop"> = { color: "red & green" }
-type my_readonl2<T, E extends keyof T> = T & { readonly [K in keyof T as K extends E ? K : never]: T[K] }
-const test_readonly2: my_readonl2<country, "color" | "pop"> = { color: "dkf", pop: 34, name: "marocco" }
-test_readonly2.name = "italy"
-test_readonly2.color = "red"
+type Omit_<T, O extends T> = O extends T ? true : false
+const testOmit <Todo, "name" >= true
